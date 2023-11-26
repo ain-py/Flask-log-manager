@@ -2,14 +2,14 @@
 
 [![LinkedIn][linkedin-shield]][linkedin-url]
 </br>
-A log ingestor system that can efficiently handle vast volumes of log data, and offer a simple interface for querying this data using full-text search or specific field filters.
+A log ingestor system that can efficiently handle vast volumes of log data offers a simple interface for querying this data using full-text search or specific field filters.
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 * Used Docker to ensure Consistency and Scalability
-* Used postgresql with Indexing to increase search efficiency
+* Used Postgresql with Indexing to increase search efficiency
 
 
 ### Built With
@@ -25,7 +25,7 @@ A log ingestor system that can efficiently handle vast volumes of log data, and 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Using docker i have made it very easy to run and use the project. 
+Using docker I have made it very easy to run and use the project. 
 
 ### Prerequisites
 
@@ -39,7 +39,7 @@ Using docker i have made it very easy to run and use the project.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/dyte-submissions/november-2023-hiring-ain-py.git
+   git clone https://github.com/ain-py/Flask-log-manager.git
    ```
 2. Build the Docker Container
    ```sh
@@ -115,12 +115,12 @@ log_data = {
 <!-- ROADMAP -->
 ## Features implemented
 
-- [x] Offer a user interface (Web UI or CLI) for full-text search across logs.
-- [x] Include filters based on: level,message,resourceId,timestamp,traceId,spanId,commit
-- [x] Implement search within specific date ranges.(BONUS)
-- [x] Allow combining multiple filters.(BONUS)
-- [x] Provide real-time log ingestion and searching capabilities.(BONUS)
-- [x] Provide real-time log ingestion and searching(BONUS) 
+- [x] Offered a user interface (Web UI or CLI) for full-text search across logs.
+- [x] Included filters based on: level,message,resourceId,timestamp,traceId,spanId,commit
+- [x] Implemented search within specific date ranges.
+- [x] Allowed combining multiple filters.
+- [x] Provided real-time log ingestion and searching capabilities.
+- [x] Provided real-time log ingestion and searching.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
