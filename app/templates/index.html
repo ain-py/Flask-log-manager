@@ -1,0 +1,93 @@
+<!-- app/templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Ingestor</title>
+    <!-- Add your CSS styles or link to external stylesheets here -->
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Log Ingestor</h1>
+    
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <form action="{{ url_for('add_log') }}" method="post">
+        <label for="log_data">Log Data:</label>
+        <textarea name="log_data" id="log_data" rows="4" required></textarea>
+        <button type="submit">Submit Log</button>
+    </form>
+    <hr>
+    <a href="{{ url_for('search') }}">Click here to search Logs »</a>
+
+    <h2>Log Entries</h2>
+    {% if logs %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Level</th>
+                    <th>Message</th>
+                    <th>Resource ID</th>
+                    <th>Timestamp</th>
+                    <th>Trace ID</th>
+                    <th>Span ID</th>
+                    <th>Commit</th>
+                    <th>Parent Resource ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for log in logs %}
+                    <tr>
+                        <td>{{ log.level }}</td>
+                        <td>{{ log.message }}</td>
+                        <td>{{ log.resourceId }}</td>
+                        <td>{{ log.timestamp }}</td>
+                        <td>{{ log.traceId or 'N/A' }}</td>
+                        <td>{{ log.spanId or 'N/A' }}</td>
+                        <td>{{ log.commit or 'N/A' }}</td>
+                        <td>{{ log.parentResourceId or 'N/A' }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% if logs.has_prev %}
+        <a href="{{ url_for('index', page=logs.prev_num) }}">« Previous</a>
+    {% endif %}
+    
+    Page {{ logs.page }} of {{ logs.pages }}.
+
+    {% if logs.has_next %}
+        <a href="{{ url_for('index', page=logs.next_num) }}">Next »</a>
+    {% endif %}
+    {% else %}
+        <p>No log entries available.</p>
+    {% endif %}
+
+    <!-- Add your JavaScript or link to external scripts here -->
+</body>
+</html>

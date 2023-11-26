@@ -1,0 +1,9 @@
+alembic==1.12.1
+anyio==3.7.0
+elasticsearch==8.11.0
+Flask==2.3.2
+Flask_Migrate==4.0.5
+flask_sqlalchemy==3.1.1
+Requests==2.31.0
+SQLAlchemy==2.0.23
+psycopg2-binary==2.9.1
