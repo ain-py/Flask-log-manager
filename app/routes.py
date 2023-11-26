@@ -1,4 +1,3 @@
-# app/routes.py
 from datetime import datetime
 import json
 from sqlalchemy import or_, and_
@@ -102,7 +101,7 @@ def search():
         if timestamp_start and timestamp_end:
             filters.append(LogEntry.timestamp.between(timestamp_start, timestamp_end))
            
-        # Combine multiple filters
+        # Combining multiple filters
         if filters:
             query_result = LogEntry.query.filter(and_(*filters)).paginate(page=page, per_page=per_page, error_out=False)
             full_text_results=None

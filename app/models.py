@@ -1,4 +1,3 @@
-# app/models.py
 from app import db
 from sqlalchemy import Index, text
 class LogEntry(db.Model):
